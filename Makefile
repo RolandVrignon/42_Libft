@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = ft_atoi.c
+SRC = ft_*.c
 
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 

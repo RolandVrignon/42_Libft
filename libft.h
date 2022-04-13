@@ -11,7 +11,7 @@ void *ft_calloc(size_t nmemb, size_t size);
 
 int ft_isalnum(int c);
 
-int ft_isalnum(int c);
+int ft_isalpha(int c);
 
 int ft_isascii(int c);
 
