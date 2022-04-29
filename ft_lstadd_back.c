@@ -6,14 +6,15 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:39:03 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/29 17:42:51 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/04/30 00:05:53 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_back(t_list **lst, t_list *new){
-	t_list *tmp;
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*tmp;
 
 	if (!lst || !new)
 		return ;

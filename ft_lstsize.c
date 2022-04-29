@@ -6,22 +6,25 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:39:45 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/29 17:43:14 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/04/30 00:09:23 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst){
-    int i = 0;
-    t_list *tmp;
+int	ft_lstsize(t_list *lst)
+{
+	int		i;
+	t_list	*tmp;
 
-    if (!lst)
-        return (0);
-    tmp = lst;
-    while (tmp){
-        i++;
-        tmp = tmp->next;
-    }
-    return (i);
+	i = 0;
+	if (!lst)
+		return (0);
+	tmp = lst;
+	while (tmp)
+	{
+		i++;
+		tmp = tmp->next;
+	}
+	return (i);
 }

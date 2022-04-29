@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 19:29:03 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/29 22:55:34 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/04/30 00:14:17 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 
 int	how_many_words(char const *s, char c, int len)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (i < len)
 	{
-		if(s[i] == c || (s[i] != c && s[i - 1] != c && i != 0))
+		if (s[i] == c || (s[i] != c && s[i - 1] != c && i != 0))
 			i++;
-		else if(s[i] != c && (s[i - 1] == c || i == 0))
+		else if (s[i] != c && (s[i - 1] == c || i == 0))
 		{
 			i++;
 			j++;
@@ -37,9 +37,10 @@ int	how_many_words(char const *s, char c, int len)
 
 char	**create_tabs(char **tab, char const *str, char c, int len)
 {
-	int i;
-	int j;
-	int k;
+	int	i;
+	int	j;
+	int	k;
+
 	i = 0;
 	j = 0;
 	k = 0;
@@ -63,15 +64,16 @@ char	**create_tabs(char **tab, char const *str, char c, int len)
 
 char	**fill_tab(char **tab, char const *s, char c, int len)
 {
-	int i;
-	int j;
-	int k;
+	int	i;
+	int	j;
+	int	k;
 
 	i = 0;
 	k = 0;
 	while (i < len)
 	{
-		if(s[i] != c){
+		if (s[i] != c)
+		{
 			j = 0;
 			while (s[i] != c && i < len)
 			{
@@ -88,11 +90,11 @@ char	**fill_tab(char **tab, char const *s, char c, int len)
 
 char	**ft_split(char const *s, char c)
 {
-	char **tab;
-	int words;
-	int len;
+	char	**tab;
+	int		words;
+	int		len;
 
-	if(!s)
+	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
 	words = how_many_words(s, c, len);
