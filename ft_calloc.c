@@ -6,11 +6,9 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:37:52 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/29 17:37:53 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/04/29 17:43:31 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-
 
 #include "libft.h"
 #include <stdlib.h>
