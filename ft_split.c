@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/29 17:40:59 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/04/29 17:40:59 by rvrignon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	x(char c, char *charset)
@@ -79,7 +91,7 @@ char	**process(int size, char **tab, char *s, char *ch)
 				st[1] = j + 1;
 			if (st[0] != -1 && st[1] > st[0])
 			{
-				tab[i] = malloc(sizeof(char) * ((st[1] - st[0]) + 1));
+				tab[i] = malloc(sizeof(char) * ((st[1] - st[0])));
 				fill_tab(st, tab[i], s, ch);
 				break ;
 			}
@@ -99,7 +111,7 @@ char	**ft_split(char const *s, char c)
     ch = ft_strdup("");
     ch = ft_strjoin(ch, &c);
     size = how_many_str((char *)s, ch);
-    tab = malloc(sizeof(char *) * (size + 1));
+    tab = malloc(sizeof(char *) * (size + 2));
     if (!tab)
         return (NULL);
     tab = process(size, tab, (char *)s, ch);
