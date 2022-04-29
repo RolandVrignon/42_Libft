@@ -5,7 +5,7 @@
 
 int main(void)
 {
-    int n = INT_MIN;
-    printf("number  : %d\n", n);
-    printf("ft_itoa : %s\n", ft_itoa(n));
+    char src[] = "coucou";
+	char dest[10]; memset(dest, 'A', 10);
+    printf("ft_itoa : %ld\n", ft_strlcpy(dest, src, -1));
 }
