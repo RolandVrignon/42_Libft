@@ -5,116 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/29 17:40:59 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/29 17:40:59 by rvrignon         ###   ########.fr       */
+/*   Created: 2022/04/29 19:29:03 by rvrignon          #+#    #+#             */
+/*   Updated: 2022/04/29 22:55:34 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "libft.h"
 
-int	x(char c, char *charset)
+int	how_many_words(char const *s, char c, int len)
 {
-	int	i;
-
+	int i;
+	int j;
+	
 	i = 0;
-	while (charset[i] != '\0')
+	j = 0;
+	while (i < len)
 	{
-		if (charset[i] == c)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	how_many_str(char *str, char *charset)
-{
-	int	i;
-	int	nb;
-
-	i = 0;
-	nb = 0;
-	if (!x(str[0], charset))
-		nb = nb + 1;
-	while (str[i] != '\0')
-	{
-		if (x(str[i], charset) && !x(str[i + 1], charset)
-			&& str[i + 1] != '\0')
-			nb = nb + 1;
-		i++;
-	}
-	return (nb + 1);
-}
-
-void	fill_tab(int *st, char *tab, char *str, char *charset)
-{
-	int	i;
-
-	i = 0;
-	if (str[st[1]] == '\0' && !x(str[st[1] - 1], charset))
-	{	
-		while (str[st[0]] != '\0')
-		{
-			tab[i] = str[st[0]];
-			st[0]++;
+		if(s[i] == c || (s[i] != c && s[i - 1] != c && i != 0))
 			i++;
+		else if(s[i] != c && (s[i - 1] == c || i == 0))
+		{
+			i++;
+			j++;
 		}
 	}
-	else
-	{
-		while (st[0] < st[1] - 1)
-		{
-			tab[i] = str[st[0]];
-			st[0]++;
-			i++;
-		}
-	}
-	tab[i] = '\0';
+	return (j);
 }
 
-char	**process(int size, char **tab, char *s, char *ch)
+char	**create_tabs(char **tab, char const *str, char c, int len)
 {
-	int	st[2];
-	int	i;
-	int	j;
-
-	j = -1;
-	i = -1;
-	while (i++ < size - 2)
+	int i;
+	int j;
+	int k;
+	i = 0;
+	j = 0;
+	k = 0;
+	while (i < len)
 	{
-		st[0] = -1;
-		while (s[++j] != '\0')
+		if (str[i] != c)
 		{
-			if (!x(s[j], ch) && (x(s[j - 1], ch) || j == 0))
-				st[0] = j;
-			if ((x(s[j], ch) && !x(s[j - 1], ch) && st[0] != -1)
-				|| (st[0] != -1 && s[j + 1] == '\0'))
-				st[1] = j + 1;
-			if (st[0] != -1 && st[1] > st[0])
+			j = 0;
+			while (str[i] != c && i < len)
 			{
-				tab[i] = malloc(sizeof(char) * ((st[1] - st[0])));
-				fill_tab(st, tab[i], s, ch);
-				break ;
+				i++;
+				j++;
 			}
+			tab[k] = malloc(sizeof(char) * j + 1);
+			k++;
 		}
+		i++;
+	}
+	return (tab);
+}
+
+char	**fill_tab(char **tab, char const *s, char c, int len)
+{
+	int i;
+	int j;
+	int k;
+
+	i = 0;
+	k = 0;
+	while (i < len)
+	{
+		if(s[i] != c){
+			j = 0;
+			while (s[i] != c && i < len)
+			{
+				tab[k][j] = s[i];
+				i++;
+				j++;
+			}
+			k++;
+		}
+		i++;
 	}
 	return (tab);
 }
 
 char	**ft_split(char const *s, char c)
 {
-    char	**tab;
-    int		size;
-    char	*ch;
+	char **tab;
+	int words;
+	int len;
 
-    if (!s)
-        return (NULL);
-    ch = ft_strdup("");
-    ch = ft_strjoin(ch, &c);
-    size = how_many_str((char *)s, ch);
-    tab = malloc(sizeof(char *) * (size + 2));
-    if (!tab)
-        return (NULL);
-    tab = process(size, tab, (char *)s, ch);
-    free(ch);
-    return (tab);
+	if(!s)
+		return (NULL);
+	len = ft_strlen(s);
+	words = how_many_words(s, c, len);
+	tab = malloc(sizeof (char *) * (words + 1));
+	if (!tab)
+		return (NULL);
+	tab = create_tabs(tab, s, c, len);
+	if (!tab)
+		return (NULL);
+	tab = fill_tab(tab, s, c, len);
+	tab[words] = NULL;
+	return (tab);
 }

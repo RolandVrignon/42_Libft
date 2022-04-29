@@ -5,7 +5,8 @@
 
 int main(void)
 {
-    char src[] = "coucou";
-	char dest[10]; memset(dest, 'A', 10);
-    printf("ft_itoa : %ld\n", ft_strlcpy(dest, src, -1));
+    char dest[30]; memset(dest, 0, 30);
+	char * src = (char *)"AAAAAAAAA";
+	dest[0] = 'B';
+    printf("ft_itoa : %ld\n", ft_strlcat(dest, src, 6));
 }

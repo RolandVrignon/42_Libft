@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:12:32 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/29 18:12:33 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/04/29 18:31:06 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ size_t ft_strlen(const char *s);
 
 int ft_strncmp(const char *s1, const char *s2, size_t n);
 
-char *ft_strnstr(const char *big, const char *little, size_t len);
+char *ft_strnstr(const char *str, const char *to_find, size_t len);
 
 char *ft_strrchr(const char *s, int c);
 
