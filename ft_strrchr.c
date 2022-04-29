@@ -3,11 +3,13 @@
 char *ft_strrchr(const char *s, int c){
     int i;
 
-    i = 0;
-    while (s[i] != '\0'){
+    i = ft_strlen(s);
+    if (c > 255)
+        c = c % 256;
+    while (i >= 0){
         if (s[i] == c)
             return ((char *)s + i);
-        i++;
+        i--;
     }
     if (c == '\0')
         return ((char *)s + i);
