@@ -15,7 +15,7 @@
 #include <string.h>
 #include "libft.h"
 
-int	how_many_words(char const *s, char c, int len)
+static int	how_many_words(char const *s, char c, int len)
 {
 	int	i;
 	int	j;
@@ -35,7 +35,7 @@ int	how_many_words(char const *s, char c, int len)
 	return (j);
 }
 
-char	**create_tabs(char **tab, char const *str, char c, int len)
+static char	**create_tabs(char **tab, char const *str, char c, int len)
 {
 	int	i;
 	int	j;
@@ -62,7 +62,7 @@ char	**create_tabs(char **tab, char const *str, char c, int len)
 	return (tab);
 }
 
-char	**fill_tab(char **tab, char const *s, char c, int len)
+static char	**fill_tab(char **tab, char const *s, char c, int len)
 {
 	int	i;
 	int	j;

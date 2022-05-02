@@ -14,7 +14,7 @@
 #include <limits.h>
 #include <stdio.h>
 
-char	*process(int j, int len, char *str, int n)
+static char	*process(int j, int len, char *str, int n)
 {
 	int	i;
 
@@ -29,7 +29,7 @@ char	*process(int j, int len, char *str, int n)
 	}
 	if (j == 1)
 		str[0] = '-';
-	str[i] = '\0';
+	str[i + j] = '\0';
 	return (str);
 }
 
