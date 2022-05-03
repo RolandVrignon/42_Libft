@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 19:29:03 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/05/03 12:03:44 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:29:45 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,8 @@ char	**ft_split(char const *s, char c)
 	if (!tab)
 		return (NULL);
 	tab = fill_tab(tab, s, c, len);
+	if (!tab)
+		return (NULL);
 	tab[words] = NULL;
 	return (tab);
 }
