@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 19:29:03 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/30 00:14:17 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:03:44 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,31 @@
 #include <string.h>
 #include "libft.h"
 
-static int	how_many_words(char const *s, char c, int len)
+static unsigned int	how_many_words(char const *s, char c)
 {
-	int	i;
-	int	j;
+	unsigned int	i;
+	unsigned int	words;
 
+	if (!s[0])
+		return (0);
 	i = 0;
-	j = 0;
-	while (i < len)
+	words = 0;
+	while (s[i] && s[i] == c)
+		i++;
+	while (s[i])
 	{
-		if (s[i] == c || (s[i] != c && s[i - 1] != c && i != 0))
-			i++;
-		else if (s[i] != c && (s[i - 1] == c || i == 0))
+		if (s[i] == c)
 		{
-			i++;
-			j++;
+			words++;
+			while (s[i] && s[i] == c)
+				i++;
+			continue ;
 		}
+		i++;
 	}
-	return (j);
+	if (s[i - 1] != c)
+		words++;
+	return (words);
 }
 
 static char	**create_tabs(char **tab, char const *str, char c, int len)
@@ -54,7 +61,7 @@ static char	**create_tabs(char **tab, char const *str, char c, int len)
 				i++;
 				j++;
 			}
-			tab[k] = malloc(sizeof(char) * j + 1);
+			tab[k] = ft_calloc(sizeof(char), (j + 1));
 			k++;
 		}
 		i++;
@@ -97,8 +104,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	len = ft_strlen(s);
-	words = how_many_words(s, c, len);
-	tab = malloc(sizeof (char *) * (words + 1));
+	words = how_many_words(s, c);
+	tab = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!tab)
 		return (NULL);
 	tab = create_tabs(tab, s, c, len);
