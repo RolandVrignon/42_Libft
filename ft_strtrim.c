@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "stdio.h"
 
 static char	*process(char *str, int i, int j, char const *s1)
 {
@@ -20,7 +19,7 @@ static char	*process(char *str, int i, int j, char const *s1)
 	k = 0;
 	if (!str)
 		return (NULL);
-	while (k < j)
+	while (k <= j - i)
 	{
 		str[k] = s1[i + k];
 		k++;
@@ -38,13 +37,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	i = 0;
-	j = 0;
+	j = ft_strlen(s1) - 1;
 	while (s1[i] && ft_strchr(set, s1[i]))
 		i++;
-	while (s1[i + j] && !ft_strchr(set, s1[i + j]))
-		j++;
-	if (i + j == 0)
+	while (s1[j] && ft_strchr(set, s1[j]))
+		j--;
+	if (j - i < 0)
 		return (ft_strdup(""));
-	str = (char *)malloc(sizeof(char) * j + 1);
+	str = (char *)malloc(sizeof(char) * (j - i + 2));
+	if (!str)
+		return (NULL);
 	return (process(str, i, j, s1));
 }

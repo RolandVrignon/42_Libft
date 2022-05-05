@@ -65,7 +65,7 @@ $(NAME): $(OBJ)
 	$(CC) -c $(CFLAGS) $^
 	@echo "\033[0m"
 
-bonus : $(OBJ) $(BONUS_OBJ)
+bonus : $(BONUS_OBJ)
 	ar rc $(NAME) $^
 	ranlib $(NAME)
 

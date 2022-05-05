@@ -12,7 +12,6 @@
 
 #include "libft.h"
 #include <limits.h>
-#include <stdio.h>
 
 static char	*process(int j, int len, char *str, int n)
 {
@@ -56,5 +55,7 @@ char	*ft_itoa(int n)
 		i = i / 10;
 	}
 	str = malloc(sizeof(char) * (len + j + 1));
+	if (!str)
+		return (NULL);
 	return (process(j, len, str, n));
 }
