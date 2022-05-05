@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-size_t	ft_get_len(const char *s, size_t start, size_t n)
+static size_t	ft_get_len(const char *s, size_t start, size_t n)
 {
 	size_t	i;
 	size_t	j;

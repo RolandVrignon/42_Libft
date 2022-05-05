@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:12:32 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/30 00:34:55 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/05/03 12:31:01 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
-
-// Partie obligatoire
 
 int		ft_atoi(const char *nptr);
 
@@ -71,8 +69,6 @@ int		ft_tolower(int c);
 
 int		ft_toupper(int c);
 
-// Bonus functions
-
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 char	*ft_strjoin(char const *s1, char const *s2);
@@ -95,8 +91,6 @@ void	ft_putendl_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd);
 
-// Structures
-
 t_list	*ft_lstnew(void *content);
 
 void	ft_lstadd_front(t_list **lst, t_list *new);
@@ -109,7 +103,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new);
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *));
 
-void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void *));
 
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 

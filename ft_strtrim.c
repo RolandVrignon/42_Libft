@@ -13,7 +13,7 @@
 #include "libft.h"
 #include "stdio.h"
 
-char	*process(char *str, int i, int j, char const *s1)
+static char	*process(char *str, int i, int j, char const *s1)
 {
 	int	k;
 
