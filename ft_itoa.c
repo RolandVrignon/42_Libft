@@ -58,8 +58,3 @@ char	*ft_itoa(int n)
 		return (NULL);
 	return (process(j, len, str, n));
 }
-
-int main(void)
-{
-	printf("%s", ft_itoa(1078428));
-}
