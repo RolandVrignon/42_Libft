@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include <limits.h>
+#include <stdio.h>
 
 static char	*process(int j, int len, char *str, int n)
 {
@@ -49,7 +50,7 @@ char	*ft_itoa(int n)
 	}
 	i = n;
 	len = 1;
-	while (i > 10)
+	while (i >= 10)
 	{
 		len++;
 		i = i / 10;
@@ -58,4 +59,9 @@ char	*ft_itoa(int n)
 	if (!str)
 		return (NULL);
 	return (process(j, len, str, n));
+}
+
+int main(void)
+{
+	printf("%s", ft_itoa(1078428));
 }
