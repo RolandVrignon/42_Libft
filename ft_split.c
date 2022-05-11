@@ -39,6 +39,19 @@ static unsigned int	how_many_words(char const *s, char c)
 	return (words);
 }
 
+static void free_tab(char **tab)
+{
+	int	i;
+
+	i = 0;
+	while (tab[i])
+	{
+		free(tab[i]);
+		i++;
+	}
+	free (tab);
+}
+
 static char	**create_tabs(char **tab, char const *str, char c, int len)
 {
 	int	i;
@@ -59,6 +72,11 @@ static char	**create_tabs(char **tab, char const *str, char c, int len)
 				j++;
 			}
 			tab[k] = ft_calloc(sizeof(char), (j + 1));
+			if (!tab[k])
+			{
+				free_tab(tab);
+				return (NULL);
+			}
 			k++;
 		}
 		i++;
@@ -109,8 +127,6 @@ char	**ft_split(char const *s, char c)
 	if (!tab)
 		return (NULL);
 	tab = fill_tab(tab, s, c, len);
-	if (!tab)
-		return (NULL);
 	tab[words] = NULL;
 	return (tab);
 }
