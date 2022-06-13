@@ -6,7 +6,7 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 18:12:32 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/06/14 00:44:52 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/14 00:49:17 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,6 @@ char		*itoa_unsigned(unsigned int n);
 
 // Get Next Line
 
-char		*get_next_line(int fd)
+char		*get_next_line(int fd);
 
 #endif
