@@ -6,17 +6,17 @@
 /*   By: rvrignon <rvrignon@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 17:37:23 by rvrignon          #+#    #+#             */
-/*   Updated: 2022/04/30 00:01:13 by rvrignon         ###   ########.fr       */
+/*   Updated: 2022/06/02 16:04:17 by rvrignon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+long int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	positif;
-	int	nb;
+	long int	i;
+	int			positif;
+	long int	nb;
 
 	i = 0;
 	nb = 0;
